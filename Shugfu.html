@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shugtech</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Behind all other elements */
+        }
+        #content {
+            color: azure;
+            position: relative;
+            z-index: 1; /* Above the background */
+            padding: 20px;
+        }
+
+        p{
+            margin: 5px;
+        }
+
+        .contact{
+            position: fixed;
+            top: 50%; 
+            right: 100px;
+            transform: translateY(-50%);
+            background-color: transparent;
+            color: azure;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            
+          
+        
+        }
+    </style>
+</head>
+<body>
+    <iframe id="background" src="background.html" frameborder="0"></iframe>
+
+    <div id="content">
+        <h1>
+            <pre>
+                __        __   _                            _        
+                \ \      / /__| | ___ ___  _ __ ___   ___  | |_ ___  
+                 \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \ | __/ _ \ 
+                  \ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |
+                 __\_/\_/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/ 
+                / ___|| |__  _   _  __ _| |_ ___  ___| |__           
+                \___ \| '_ \| | | |/ _` | __/ _ \/ __| '_ \          
+                 ___) | | | | |_| | (_| | ||  __/ (__| | | |         
+                |____/|_| |_|\__,_|\__, |\__\___|\___|_| |_|         
+                                   |___/                             
+            </pre>
+        </h1>
+        <h2>My name is Sean but my friends call me Shug<br>Lets make some Magic togather</b></h2>
+        <p><b>Who am I</b><br>I am a <b>NOVICE</b> programmer just looking to get my start in the tech industry.<br>I love programming and I have never been happier to learn and im going to keep<br>learning until I can change that novice title to somewhat competent</p>
+    </div>
+    
+    <!--Contact container-->
+    <div class="contact">
+        <p><b>Contact</b></p>
+        <p>Sean Chenevert</p>
+        <p>("aka" Shug:)</p>
+        <p>Linkedin</p>
+        <p>Email</p>
+        <p>github</p>
+    </div>
+</body>
+</html>
