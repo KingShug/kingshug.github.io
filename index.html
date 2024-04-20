@@ -3,415 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400" rel="stylesheet">
     <title>Shugtech</title>
     <style>
+        /*Global*/
+    * {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    box-sizing: border-box;
+    color: azure;
+    }
+    html {
+    scroll-behavior: smooth;
+    }   
+    a {
+    transition: all 300ms ease;
+    }
 
-        html{
-            scroll-behavior: smooth;
-            ::-webkit-scrollbar{display: none;}
-            scrollbar-width: none;
-        }
- 
-        #background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
 
-        body{
-         font-family: Fira, monospace;
-         text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
-         font-size: 105%;
-        }
+    /*navbar*/
+    .navbar {
+    background-color: transparent;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    }  
+    .navbar a {
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 20px;
+    border: 1.5px solid azure;
+    transition: background-color 0.3s;
+    display: inline-block;
+    font-size: 15px;    
+    }
+    .navbar a:hover {
+    background-color: #777; 
+    }
+    .name {
+    font-size: 35px;
+    margin-left: 10px;
+    }
 
-        header{
-            width: 100%;
-            height: 60px;
-            padding: 0;
-            margin: 0;
-            margin-top: -5px;
-            margin-left: -5px;
-            align-items: top;
-            font-size: 5vh;
-            overflow: hidden;
-            position: fixed;
-            display: flex;
-            justify-content: space-between;
-            background-color: rgba(2,2,2,1);
-            color: azure;
-            z-index: 2;
-            filter: blur(1px);
-        }
+    /*"Pages"tm*/
+    section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    background-color: transparent;
+    z-index: 1;
+    }
+    div {
+    padding-top: 10px;
+    }
 
-        .hleft{
-            text-align: left;
-            width: 51%;
-        }
+    /*Intro*/
+    .logo{
+    font-size: 80px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    position: relative;
+    color: transparent;
+    -webkit-text-stroke: 2px azure;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 25px #fff, 0 0 30px #ff00e0, 0 0 40px #ff00e0, 0 0 50px #ff00e0, 0 0 60px #ff00e0, 0 0 80px #ff00e0;
+    animation: flicker 1.5s infinite alternate;
+    }
+    .logo h1 {
+    font-size: 12vw;
+    }
+    .logo h3 {
+    font-size: 5vw;
+    }
 
-        .hright{
-            text-align: right;
-           width: 51%;
-        }
+    @keyframes flicker{
+    0%, 100%{
+     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 25px #fff, 0 0 30px #ff00e0, 0 0 40px #ff00e0, 0 0 50px #ff00e0, 0 0 60px #ff00e0, 0 0 80px #ff00e0;
+    }
+    50% { text-shadow: none;}
+    }
 
-        nav{
-            position: fixed;
-            display: flex;
-            color: azure;
-            height: auto;
-            width: 100%;
-            height: 40px;
-            padding-top: 55px;
-            margin-left: -5px;
-            text-align: center;
-            justify-content: space-around;
-            z-index: 2;
-            filter: blur(0.7px);
-        }
+    /*About*/
+    .about {
+    max-width: 1000px;
+    }
+    .skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    }
+    .skbx {
+    width: 48%;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    }
+    .projects {
+    max-width: 1000px;
+    word-wrap: break-word;
+    }
 
-        .nav-link{
-            padding: 10px 10px;
-            width: 22%;
-            height: 15px;
-            text-decoration: none;
-            color: azure;
-            background-color: rgba(2,2,2,0.8);
-            transition: all 300ms ease-in;
-        }
 
-        .nav-link:hover{
-            background: darkgreen;
-        }
+    /*Screen Resp.*/
+    @media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+    .navbar a {
+        margin-left: 0;
+        margin-top: 10px;
+        font-size: 2.5vw;
+    }
+    .about {
+        max-width: 80%;
+        font-size: 5vw;
+    }
+    .skbx {
+        width: 100%;
+    }
+    .projects {
+        margin-top: 100px;
+        max-width: 80%;
+        font-size: 5vw;
+    }
+    section {
+        margin-bottom: 100px;
+        margin-top: 100px;
+        height: 150vh;
+    }
+    }
 
-        section{
-            filter: blur(0.5px);
-            padding: 110px;
-            padding-bottom: 100%;
-            color: azure;
-        }
-
-        .footer{
-            display: flex;
-            justify-content: space-around;
-            position: fixed;
-            bottom: 40px;
-            left: 0;
-            width: 100%;
-            height: 10px;
-            margin-bottom: -3px;
-            background-color: rgba(2,2,2,0.8);
-            color: azure;
-            padding: 0;
-            text-align: center;
-            font-size: larger;
-            z-index: 3;
-                   
-        }
-
-        h2{
-            padding: 0;
-            padding-top: 1%;
-            padding-bottom: 5px;
-            margin: 0;
-            filter: blur(0.7px);
-        }
-
-        .div{
-            margin: 10px;
-            padding: 40px;
-        }
-
-        .para{
-            color: azure;
-            text-shadow: 1px 1px 2px black, 0 0 5px green, 0 0 5px darkgreen;
-            position: relative;
-            z-index: 1; 
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            text-align: left; 
-        }
-
-        .para2{
-            color: azure;
-            text-shadow: 1px 1px 2px black, 0 0 25px green, 0 0 5px darkgreen;
-            position: relative;
-            font-size: 2em;
-            z-index: 1; 
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            text-align: center; 
-        }
-
-        /*Skillsheatwip*/
-        .skills{
-            font-size: 3vh;
-            float: left;
-            width: 15%;
-            height: 5%;
-            padding: 10px;
-            margin: 0px 10px;
-            text-align: center;
-            word-wrap: none;
-            align-items: stretch;
-            background: linear-gradient(-45deg, rgba(0,128,0,0.9), rgba(7, 78, 18, 0.9), black, transparent);
-	        background-size: 400% 400%;
-            border-radius: 25px;
-	        animation: gradient 5s ease infinite;
-        }
-
-        @keyframes gradient {
-	         0% {
-		    background-position: 0% 50%;
-	        }
-	        50% {
-		    background-position: 100% 50%;
-	         }
-	         100% {
-		    background-position: 0% 50%;
-	        }
-        }
-
+    /*Background*/
+    .stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: -1;
+    }
+    .star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle linear infinite;
+    }
+    @keyframes twinkle {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+    }
     </style>
 </head>
 <body>
-    <iframe id="background" src="background.html" frameborder="0"></iframe>
-
-    <!--Header-->
-    <header>
-        <div class="hleft">
-            WELCOME TO SHUGTECH
+     <div class="navbar">
+        <div class="name">Shugtech</div>
+        <div class="menu">
+          <a href="#Intro">Intro</a>
+          <a href="#About">About</a>
+          <a href="#Skills">Skills</a>
+          <a href="#Projects">Projects</a>
+          <a href="#Contact">Contact</a>
         </div>
-        <div class="hright">
-            LETS MAKE SOME MAGIC!
-        </div>
-    </header>
+      </div>
 
-    <!--Navbar-->
-    <div class="nav">
-        <nav>
-            <a href="#section1" class="nav-link">Intro</a>
-            <a href="#section2" class="nav-link">Experience</a>
-            <a href="#section3" class="nav-link">Skills</a>
-            <a href="#section4" class="nav-link">Projects</a>
-            <a href="#section5" class="nav-link">Credits</a>
-        </nav>
-    </div>
-   
-    <!--Intro-->
-    <section id="section1">
-        <h2>
-            My name is Sean but my friends call me Shug
-        </h2>
-        <p class="para">
-            <div class="div">
-                <p class="para">
-                    I am a complete <b>NOVICE</b> programmer but im working on building up my skills and knowledge to grow and learn in this exciting world!<br>
-                </p>
-              <div class="div">
-                <p class="para">
-                    I have been building and working on my own PCs since I was 6 I always enjoyed using and learning about them,<br>
-                    I used to start at the screen in awe and wonder (still do!) at how it all worked, how could some strange and<br>
-                    arcane math make all this possible. Even back playing my first game (Castle Adventure -1984) I thought to myself<br>
-                    "Wow the people who made this must be wizards"
-                </p>
-                <div class="div">
-                    <p class="para">
-                    I have always wanted to learn <b>Computer Science, Information Tech.,</b> and <b>Programming</b> but self-doubt and<br>
-                    no small amount of fear and anxiety kept me from persueing that dream. I thought that I would never be smart enough to<br>
-                    figure it out or that I would never have the means and capability to make it a reality. So I never tried.
-                    </p>
-                    <div class="div">
-                        <p class="para">
-                            I strugled with manic depression for as long as I can remeber. The constant lossing battle with myself led<br>
-                            me to belive I would never acomplish anything and it may sound bizare but living under that dark cloud<br><br>
-                            I never even pictured a future where I could be happy<br><br>
-                            It wasn't until I lost what I thought was the only future I had that I was forced to start fighting to take my<br>
-                            life back. I was so sick inside it was hard to breath and a strugle to pretend to make it through the day until<br>
-                            someone going through something similar asked me "Man you have it togather how do you do it" and I didn't have<br>
-                            the heart to tell him that I was just lieing to everyone around me and that I honestly didn't know how many days<br>
-                            I had left I was on borrowed time. I realized I had to come up with something so I told him<br><br>
-                            "Its not a battle its a <b>WAR</b> and every day you survive is a victory so let ever day<br>
-                             give you the strength to fight harder tommorow"<br><br>
-                            And that little bit of made up nonscense changed my whole life and I was finally able to start fighting<br><br>                                        
-                        </p>
-                    </div>
-                </div>
-              </div>  
+    <section id="Intro">
+        <div class="logo">
+            <h1>Welcome To<br>Shugtech</h1>
+            <h3>Lets Make Some Magic</h2>
+        </div>
+    </section>
+    <section id="About">
+        <div class="about">
+            <h1>A Novice Programmer Trying to get My Start</h1>
+            <P>Hi my name is Sean, but my friends call me Shug. Im just starting out in IT but one day I want to be able to do this all day every day. I LOVE computer science and may have picked up a slight programming addiction. Even though I'm just starting out (a little late) im working super hard to build my skills every day. I know I may not be the best on paper but im dedicated to making this my life and im not stopping working towards that goal untill I do. Give me a chance and I promise we can grow and learn togather! </P>
+        </div>
+    </section>
+    <section id="Skills">
+        <div class="skills">
+            <div class="skbx">
+                <h2>Business</h2>
+                <p>Customer Service<br>Conflict Resolution<br>Team Management<br>Account Handling<br>Billing<br>Business Relations<br></p>
+            </div><br><br>
+            <div class="skbx">
+                <h2>Technician</h2>
+                <p>Locksmithing<br>Troubleshooting<br>Problem Solving<br>Project Planning<br>Resource Aqusitions<br>Security<br></p>
+            </div><br><br>
+            <div class="skbx">
+                <h2>Computer Science</h2>
+                <p>Windows<br>G-suite<br>Hardware<br>Computer Building<br>Desktop Repair<br>VScode<br>Html<br>CSS<BR>Virtualization<br>Javasript (limited)<br>Wordpress (not this site)<br></p>
+            </div><Br><br>
+            <div class="skbx">
+                <h2>Coming Soon</h2>
+                <h3>What I'm Learning</h3>
+                <p>CompTIA A+ (saving for exam)<br>Python<br>Ruby<br>C++<br>Linux<br>Zed/Vim<br>Networking<br></p>
             </div>
-        </p>
-        <p class="para">
-            <div class="div">
-                <p class="para">
-                    So what does all this have to do with programming, well origionally since ,you know I was all wonky in the dome, I fell face forward<br>
-                    into a bunch of odd jobs and eventually found one I could turn into a career. I became a <b>Locksmith Technician</b> and started working<br>
-                    for a great Master Locksmith and did so through many years. But even though I had a career and put on a happy face every day<br>
-                    I was unhappy and looking back I think I wasn't fooling anyone. Even though I love my old coworkers like their familly<br>
-                    Im glad I finally had to leave.
-                </p>
-                <div class="div">
-                    <p class="para">
-                        It was along chain of events that led to me leaving <b>TWO</b> natural disasters and a full blown pandemic on top of a<br>
-                        life threatening illness (almost like someone was aiming at me). After all of that I would have stayed, you know if not<br>
-                        working for two years hadn't left me flat broke. So I finally left and went off to sort my self out its been a long fight<br><br>
-                    </p>
-                    <div class="div">
-                        <p class="para">
-                            "Shug that still has nothing to do with programming get to the point."<br>
-                            
-                            Fair enough well after all that having been working out my head and working a 9-5 at my local pharmacy, I had recovered<br>
-                            finacially (kinda still broke just not debt broke) and mentally, not physically thats another story but hey I lost 30lbs so<br>
-                            silver lining. I was well("ish") but I was missing something it wasn't till my father of all people sugessted that I find<br>
-                            something cathartic to focus on so I thought hey i've always been to down to finish that video game I started writing ill give<br>
-                            that a shot and from there I mentioned to a friend that I was writing again and he said that he and another friend were working<br>
-                            on a game and that I should join them so I did and I thought that why am I just going to write all day I should figure out how<br>
-                            games are made. So I started studying game development and from there I started studying how programming works and how networking<br>
-                            works and then I got lost so I went back to programming and I started discovering all these new resources that didn't excist when<br>
-                            I was first coming up and what wild is ever since I started on this journey just a short time ago this has been the happiest I have<br>
-                            ever been and I can't even put into words the emotions I go through every time I learn something new every day so far has been<br>
-                            better than any day I have had yet. This is my life now Its sound crazy but I don't really have a say in the matter anymore<br><br>
-                            SOOOOOO......<br><br><br>
-
-                            Look I have a really long way to go, like the rest of my life long, but honestly im looking forward to tommorow for the first time<br>
-                            in my life. So look out all you CodeMasters im comming your way it may take me decades but im chasing after you full sprint<br>
-                            and I know ill get there so I hope your all ready to<br>
-                            <b>Make Some Magic Togather</b><br><br><br>
-                            With all the Love,<br>
-                            Sean Chenevert<br>
-                            (Aka) Shug
-                        </p>
-
-                    </div>
-                </div>
-            </div>        
-        </p>
+        </div>
     </section>
-    
-    <!--Experience-->
-    <section id="section2">
-        <h2>
-            Experience
-        </h2>
-       <div class="div">
-        <h2>Hughes Safe and Lock <i>Nov 2011-Nov2021</i></h2>
-        <h3>Locksmith Technician</h3>
-        <p class="para">
-            I have extensive experience in designing, implementing, and maintaining security and protection solutions and strategies. I have helped customers and technicians troubleshoot both familiar and unfamiliar hardware in the field. Working with a diverse client base, I have developed action plans to improve their existing life safety infrastructure. In an ever-evolving industry, I have acquired the valuable skill of adapting and learning new products and skill sets on the fly.<br><br>
-        </p>
-        <p class="para">
-            Throughout my time in a knowledge-focused industry, I have learned the importance of continuous learning and growth. As one of the oldest and most diverse trades, locksmithing presents new challenges and opportunities for growth. My experience as a locksmith has provided me with a range of skills and the ability to apply them in various situations. 
-        </p>
-       </div>
-       <div class="div">
-        <h2>Walgreens <i>Mar 2022-Present</i></h2>
-        <h3>Shift Leader</h3>
-        <p class="para">
-            During my time at Walgreens, I have developed my customer service and conflict resolution skills and gained valuable experience in leadership. I have been responsible for overseeing daily operations and building maintenance, while also practicing patience and understanding with both customers and staff.<br><br>
-        </p>
-        <p class="para">
-            Whenever conflicts or concerns have arisen, I have resolved them professionally and courteously.
-        </p>
-       </div>
-       <div class="div">
-        <h2>Chenevert Hardware <i>May 2007-Present(Sesonal)</i></h2>
-        <h3>Customer Service Rep.</h3>
-        <p class="para">
-            I have gained valuable communication and customer service skills while assisting professionals from various industries. Additionally, I received training in client relations and account management.<br><br>
-        </p>
-        <p class="para">
-            I have had the privilege of working for the company for many years, which has provided me with the opportunity to receive essential training in fostering and building strong relationships with customers.
-        </p>
-       </div>
-
-       <h2>
-        <br><br><br>Education
-       </h2>
-       <div>
-        <h2>Zachary High School -<i>May 2010</i></h2>
-        <h3>High School Diploma</h3>
-        <p class="para">
-            Theatre<br>
-            JROTC<br>
-            Business Computer Applications
-        </p>
-       </div>
-
-       <br><br><h2>Certifications</h2>
+      <section id="Projects">
         <div>
-            <h2>CompTIA A+ -<i>Currently Studying</i></h2>
-            <h2>CompTIA ITF+ -<I>Currently Studying</i></h2>
+            <h2>My First Official Project!!</h2>
+            <p>Introducing my first official project! This Site!!<br>
+                Is it the best looking... no.<br>
+                Could I have made it in wordpress in a fraction of the time.... Yes<br>
+                I did in fact and its Argubly better than this version.<br>
+                I wanted to challenge myself and I value the skills and experience I gained<br>I learned HTML CSS Java...kinda.<br>I figured out how to be a google assasin taking each line of code piece by piece<br>I gained an incredible ammount of confidance in my ability to learn.<br>I already have so many ideas on how to improve this site.<br>
+                I made a plan and I didn't know how to do it but I found a way<br>
+                I love this If I could spend all day doing this I would no questions asked!<br>
+                Something being hard only makes it worth more when you've done it....</p>
         </div>
-
-    </section>
-
-    <!--Skills-->
-    <section id="section3">
-        <div class="div">
-            <h2>Social</h2>
-            <div class="skills">Customer Service</div>
-            <div class="skills">Conflict Mediation</div>
-            <div class="skills">Customer support</div>
-            <div class="skills">Friendly Personality</div>
-            <div class="skills">Team Management</div>
-        </div><br><br>
-        <div class="div">
-            <h2>Technical</h2>
-            <div class="skills">Security Solutions</div>
-            <div class="skills">Trouble<br>Shooting</div>
-            <div class="skills">Project Planning</div>
-            <div class="skills">Account Management</div>
-            <div class="skills">Product Sourcing</div>
-        </div><br><br>
-        <div class="div">
-            <h2>Computer Science</h2>
-            <div class="skills">Html<br>Coding</div>
-            <div class="skills">Css<br>Coding</div>
-            <div class="skills">Java<br>Script</div>
-            <div class="skills">Computer<br>Hardware</div>
-            <div class="skills">Wordpress<br>Experience</div>
-        </div><br><br>    
-        <div class="div">
-            <h2>Problem Solving</h2>
-            <div class="skills">Fast<br>Learning</div>
-            <div class="skills">Self<br>Motivated</div>
-            <div class="skills">Analytical Thinking</div>
-            <div class="skills">Creative Thinker</div>
-            <div class="skills">Quickly Adaptable</div>
-        </div><br><br>
-    </section>
-
-    <!--Projects-->
-    <section id="section4">
-        <div class="div">
-            <p class="para">
-                Introducing my first official project! <b>This Site!!</b><br>Is it the best looking... no.<br>Could I have made it in wordpress in a fraction of the time.... Yes I did in fact and its Argubly better than this version.<br> BUT!. I wanted to challenge myself and I place extreme value on the skills and experience I gained in this endevor. I learned <b>HTML</b> <b>CSS</b> <b>Java...</b>kinda. I figured out how to be a google assasin taking each line function and snippet of code peice by peice and that built and incredible ammount of confidance in my ability to learn. I already have so many ideas on how to improve this site and I plan on breaking it and putting it back togather regularly<br>I made a plan and I didn't know how to do it but I found a way to execute my plan.<br>I even set myself a deadline so that I can practice working under pressure and I've got an hour left and no sweat I got this!<br>(ok so a fair ammount of sweat)<br>I love this If I could spend all day doing this I would no holds barred this is my future....<br>Something being hard only makes it worth more when you have it....
+      </section>
+      <section id="Contact">
+        <div>
+            <h2>Credits</h2>
+            <p>
+                To all my coworkers past and present, to my family, and to my friends<br>
+                Thank you to all of your support and words of encouragement since I started this journey<br>
+                Also a special shoutout to whoever gets me my next job thank you<br>
+                <b><i><u>Insert Name Here</u></i></b><br>
+                Put me In coach!!!<br><br>
+                With Love,<br>
+                Shug
             </p>
+            <div class="links">
+                <a href="https://www.linkedin.com/in/sdchenevert/">LinkedIn</a>
+                <a href="https://github.com/KingShug/">Github</a>
+            </div>
         </div>
+      </section>
 
-    </section>
+   <div class="stars"></div>  
 
-    <!--Credits-->
-    <section id="section5">
-        <p class="para2">
-            To all my friends, Coworkers, and family,<br> All of which have been so incredibly supportive since I started this journey.<br> I would have done it without them but having their support has been like<br>having my cake and eating it too.<br><br><br>
-            Also a special shoutout to whoever gives me my first tech job<br>I shouldn't be trusted out here alone..... im cold<br>So thank you<br><b><i>Insert Name Here</i></b><br>I couldn't have done it without you!
-
-        </p>
-
-    </section>
-
-    
-    <!--Contact container-->
-    <footer class="footer">
-        <a href="https://www.linkedin.com/in/sdchenevert/">linkedin</a>
-        <a href="https://github.com/KingShug/">Github</a>
-    </footer>
-    
+   <script>
+        // Background
+    function random(min, max) {
+    return Math.random() * (max - min) + min;
+    }
+     function createStars() {
+    const numStars = 200;
+    const starsContainer = document.querySelector('.stars');
+    for (let i = 0; i < numStars; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.width = random(1, 3, 6) + 'px';
+      star.style.height = star.style.width;
+      star.style.top = random(0, 100) + '%';
+      star.style.left = random(0, 100) + '%';
+      star.style.animationDuration = random(1, 5, 7) + 's';
+      starsContainer.appendChild(star);
+    }
+    }
+    window.onload = createStars;
+   </script>   
 </body>
 </html>
