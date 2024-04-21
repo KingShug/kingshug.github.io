@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <title>Shugtech</title>
     <style>
         /*Global*/
     * {
     margin: 0;
     padding: 0;
-    font-family: monospace;
+    font-family: "Shadows Into Light", cursive;
+    font-weight: 400;
     box-sizing: border-box;
     color: azure;
     }
@@ -19,11 +23,18 @@
     a {
     transition: all 300ms ease;
     }
+    body {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
 
 
     /*navbar*/
     .navbar {
     background-color: transparent;
+    font-family: 'Courier New', Courier, monospace;
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -31,23 +42,31 @@
     position: sticky;
     top: 0;
     z-index: 10;
+    animation: floatmod 3s ease-in-out infinite;
     }  
+
     .navbar a {
     text-decoration: none;
     padding: 10px 20px;
     margin-left: 10px;
     border-radius: 20px;
     border: 1.5px solid azure;
-    transition: background-color 0.3s;
+    transition: box-shadow 0.3s;
     display: inline-block;
-    font-size: 15px;    
+    font-size: 20px;    
     }
     .navbar a:hover {
-    background-color: #777; 
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.7);
     }
+
     .name {
-    font-size: 35px;
+    font-size: 40px;
+    font-stretch: expanded;
     margin-left: 10px;
+    font-weight: bolder;
+    color: rgba(255, 255, 255, 0.836);
+    text-shadow: 0 0 10px #fcfcfc, 0 0 20px rgba(230, 227, 223, 0.5) , 0 0 30px rgba(155, 148, 144, 0.5);
+    letter-spacing: 4px;
     }
 
     /*"Pages"tm*/
@@ -58,11 +77,19 @@
     align-items: center;
     font-size: 2em;
     background-color: transparent;
+    animation: float 5s ease-in-out infinite;
     z-index: 1;
     }
-    div {
-    padding-top: 10px;
+
+    .pad {
+        max-width: 100%;
+        margin: 0;
+        padding: 20px 20px;
+        height: 1500px;
+        margin-bottom: 100px;
+
     }
+    
 
     /*Intro*/
     .logo{
@@ -75,7 +102,7 @@
     -webkit-text-stroke: 2px azure;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 25px #fff, 0 0 30px #ff00e0, 0 0 40px #ff00e0, 0 0 50px #ff00e0, 0 0 60px #ff00e0, 0 0 80px #ff00e0;
-    animation: flicker 1.5s infinite alternate;
+    animation: flicker 5s infinite alternate;
     }
     .logo h1 {
     font-size: 12vw;
@@ -105,10 +132,21 @@
     margin-bottom: 20px;
     padding: 20px;
     box-sizing: border-box;
+    font-size: 25px;
     }
     .projects {
     max-width: 1000px;
     word-wrap: break-word;
+    }
+    .text {
+        font-weight: bold;
+        text-shadow: 0 0 10px #fcfcfc, 0 0 20px rgba(255, 166, 0, 0.5) , 0 0 30px rgba(216, 145, 112, 0.5);
+        animation: glow 2s infinite alternate;
+        letter-spacing: 0.8px;
+    }
+    .head {
+        font-weight: bolder;
+        text-shadow: 0 0 10px #fcfcfc, 0 0 20px rgba(255, 166, 0, 0.5) , 0 0 30px rgba(216, 145, 112, 0.5);
     }
 
 
@@ -124,21 +162,19 @@
     }
     .about {
         max-width: 80%;
-        font-size: 5vw;
     }
     .skbx {
         width: 100%;
+        font-size: small;
     }
     .projects {
         margin-top: 100px;
         max-width: 80%;
-        font-size: 5vw;
     }
     section {
-        margin-bottom: 100px;
-        margin-top: 100px;
-        height: 150vh;
+        font-size: small;
     }
+
     }
 
     /*Background*/
@@ -162,6 +198,25 @@
     50% { opacity: 1; }
     100% { opacity: 0; }
     }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0);}
+        50% {transform: translateY(-20px);}
+    }
+
+    @keyframes floatmod {
+        0%, 100% {transform: translateY(0);}
+        50% {transform: translateY(5px);}
+    }
+    
+    @keyframes glow {
+        0%, 100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.8;
+        }
+    }
     </style>
 </head>
 <body>
@@ -170,49 +225,59 @@
         <div class="menu">
           <a href="#Intro">Intro</a>
           <a href="#About">About</a>
-          <a href="#Skills">Skills</a>
+          <a href="#start">Skills</a>
           <a href="#Projects">Projects</a>
           <a href="#Contact">Contact</a>
         </div>
       </div>
 
-    <section id="Intro">
-        <div class="logo">
-            <h1>Welcome To<br>Shugtech</h1>
-            <h3>Lets Make Some Magic</h2>
-        </div>
-    </section>
+    <div class="pad">  
+     <section id="Intro">
+            <div class="logo">
+                <h1>Welcome To<br>Shugtech</h1>
+                <h3>Lets Make Some Magic</h2>
+         </div>
+        </section>
+    </div>
+
+    <div class="pad">
     <section id="About">
         <div class="about">
-            <h1>A Novice Programmer Trying to get My Start</h1>
-            <P>Hi my name is Sean, but my friends call me Shug. Im just starting out in IT but one day I want to be able to do this all day every day. I LOVE computer science and may have picked up a slight programming addiction. Even though I'm just starting out (a little late) im working super hard to build my skills every day. I know I may not be the best on paper but im dedicated to making this my life and im not stopping working towards that goal untill I do. Give me a chance and I promise we can grow and learn togather! </P>
+            <h1 class="head">A Novice Programmer Trying to get My Start</h1>
+            <P class="text">Hi my name is Sean, but my friends call me Shug. Im just starting out in IT but one day I want to be able to do this all day every day. I LOVE computer science and may have picked up a slight programming addiction. Even though I'm just starting out (a little late) im working super hard to build my skills every day. I know I may not be the best on paper but im dedicated to making this my life and im not stopping working towards that goal untill I do. Give me a chance and I promise we can grow and learn togather! </P>
         </div>
     </section>
-    <section id="Skills">
+    </div>
+
+    <div class="pad">
+        <section id="Skills">
         <div class="skills">
             <div class="skbx">
-                <h2>Business</h2>
-                <p>Customer Service<br>Conflict Resolution<br>Team Management<br>Account Handling<br>Billing<br>Business Relations<br></p>
+                <h2 id="start" class="head">Business</h2>
+                <p class="text">Customer Service<br>Conflict Resolution<br>Team Management<br>Account Handling<br>Billing<br>Business Relations<br></p>
             </div><br><br>
             <div class="skbx">
-                <h2>Technician</h2>
-                <p>Locksmithing<br>Troubleshooting<br>Problem Solving<br>Project Planning<br>Resource Aqusitions<br>Security<br></p>
+                <h2 class="head">Technician</h2>
+                <p class="text">Locksmithing<br>Troubleshooting<br>Problem Solving<br>Project Planning<br>Resource Aqusitions<br>Security<br></p>
             </div><br><br>
             <div class="skbx">
-                <h2>Computer Science</h2>
-                <p>Windows<br>G-suite<br>Hardware<br>Computer Building<br>Desktop Repair<br>VScode<br>Html<br>CSS<BR>Virtualization<br>Javasript (limited)<br>Wordpress (not this site)<br></p>
+                <h2 class="head">Computer Science</h2>
+                <p class="text">Windows<br>G-suite<br>Hardware<br>Computer Building<br>Desktop Repair<br>VScode<br>Html<br>CSS<BR>Virtualization<br>Javasript (limited)<br>Wordpress (not this site)<br></p>
             </div><Br><br>
             <div class="skbx">
-                <h2>Coming Soon</h2>
-                <h3>What I'm Learning</h3>
-                <p>CompTIA A+ (saving for exam)<br>Python<br>Ruby<br>C++<br>Linux<br>Zed/Vim<br>Networking<br></p>
+                <h2 class="head">Coming Soon</h2>
+                <h3 class="head">What I'm Learning</h3>
+                <p class="text">CompTIA A+ (saving for exam)<br>Python<br>Ruby<br>C++<br>Linux<br>Zed/Vim<br>Networking<br></p>
             </div>
         </div>
-    </section>
+        </section>
+    </div>
+    
+    <div class="pad">
       <section id="Projects">
         <div>
-            <h2>My First Official Project!!</h2>
-            <p>Introducing my first official project! This Site!!<br>
+            <h2 class="head">My First Official Project!!</h2>
+            <p class="text">Introducing my first official project! This Site!!<br>
                 Is it the best looking... no.<br>
                 Could I have made it in wordpress in a fraction of the time.... Yes<br>
                 I did in fact and its Argubly better than this version.<br>
@@ -222,10 +287,13 @@
                 Something being hard only makes it worth more when you've done it....</p>
         </div>
       </section>
+    </div>
+    
+    <div class="pad">
       <section id="Contact">
         <div>
-            <h2>Credits</h2>
-            <p>
+            <h2 class="head">Credits</h2>
+            <p class="text">
                 To all my coworkers past and present, to my family, and to my friends<br>
                 Thank you to all of your support and words of encouragement since I started this journey<br>
                 Also a special shoutout to whoever gets me my next job thank you<br>
@@ -240,6 +308,7 @@
             </div>
         </div>
       </section>
+    </div>  
 
    <div class="stars"></div>  
 
@@ -249,12 +318,12 @@
     return Math.random() * (max - min) + min;
     }
      function createStars() {
-    const numStars = 200;
+    const numStars = 300;
     const starsContainer = document.querySelector('.stars');
     for (let i = 0; i < numStars; i++) {
       const star = document.createElement('div');
       star.classList.add('star');
-      star.style.width = random(1, 3, 6) + 'px';
+      star.style.width = random(1, 3, 6, 10) + 'px';
       star.style.height = star.style.width;
       star.style.top = random(0, 100) + '%';
       star.style.left = random(0, 100) + '%';
